@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 
-export type DevDomain = "ai" | "data" | "fullstack" | "cv" | "leadership";
+export type DevDomain = "ai" | "data" | "fullstack" | "cv" | "leadership" | "systems";
 
 export interface DevProject { emoji: string; bg: "blue" | "green" | "red"; tags: string[]; title: string; description: string; }
 export interface DevJourney { period?: string; current?: boolean; role: string; org: string; description: string; }
@@ -33,10 +33,11 @@ const DOMAIN_THEME: Record<DevDomain, { accent: string; accentSoft: string; ring
   fullstack:  { accent: "text-emerald-300", accentSoft: "bg-emerald-400/10 border-emerald-300/30",ring: "rgba(74,222,128,0.45)",  from: "from-emerald-400", to: "to-teal-400",    label: "Full Stack Engineering",  icon: "⚡", tagline: "React · APIs · Cloud · DevOps" },
   cv:         { accent: "text-amber-300",   accentSoft: "bg-amber-400/10 border-amber-300/30",    ring: "rgba(252,211,77,0.45)",  from: "from-amber-400",   to: "to-orange-400",  label: "Computer Vision & Systems", icon: "👁️", tagline: "YOLO · CNN · Real-time vision" },
   leadership: { accent: "text-rose-300",    accentSoft: "bg-rose-400/10 border-rose-300/30",      ring: "rgba(251,113,133,0.45)", from: "from-rose-400",    to: "to-violet-400",  label: "Founder · Architect",     icon: "👑", tagline: "Vision · Architecture · Ecosystem" },
+  systems:   { accent: "text-cyan-300",    accentSoft: "bg-cyan-400/10 border-cyan-300/30",      ring: "rgba(34,211,238,0.45)",  from: "from-cyan-400",    to: "to-sky-400",     label: "Systems Engineering",     icon: "⚙️", tagline: "Systems · Automation · Cloud" },
 };
 
 export function DevFolioPage(d: DevFolioProps) {
-  const theme = DOMAIN_THEME[d.domain ?? "fullstack"];
+  const theme = DOMAIN_THEME[(d.domain as DevDomain) ?? "fullstack"] ?? DOMAIN_THEME.fullstack;
   const bgMap: Record<string, string> = {
     blue:  "bg-gradient-to-br from-sky-500/20 via-violet-500/10 to-transparent border-sky-400/20",
     green: "bg-gradient-to-br from-emerald-500/20 via-teal-500/10 to-transparent border-emerald-400/20",
