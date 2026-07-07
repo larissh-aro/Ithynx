@@ -9,6 +9,7 @@ import { GalleryScatter } from "@/components/site/GalleryScatter";
 import { GetStartedDialog } from "@/components/site/GetStartedDialog";
 import { Sparkles } from "@/components/site/Sparkles";
 import { MagneticButton } from "@/components/site/MagneticButton";
+import { StudentReviews } from "@/components/site/StudentReviews";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -31,10 +32,10 @@ const FEATURES = [
 ];
 
 const PLANS = [
-  { num: "01", slug: "dev-sprint", name: "Dev Sprint", desc: "Intensive, high-energy single-day industry simulation bootcamps", items: ["🚀 Live Code Along", "📊 Lab Sprint Challenge", "🏆 Performance Evaluation"], price: "₹999", cta: "Explore Workshop", featured: false },
-  { num: "02", slug: "semester-module", name: "Semester Module", desc: "Parallel academic elective integrated directly into your timetable", items: ["⚙️ Curriculum Mapping", "🧠 Software Architecture Foundations", "⏱️ Weekly Assessments", "📜 Accreditation Records"], price: "₹1,049", cta: "Explore Semester Plan", featured: true },
-  { num: "03", slug: "engineering-immersion", name: "Engineering Immersion", desc: "End-to-end multi-track engineering transformation blueprint", items: ["⛓️ Advanced Systems Mastery", "⚡ Scalability Orchestration", "🏁 Industry Sprints", "🚀 Capstone Deployment"], price: "₹1,099", cta: "Explore Full Immersion", featured: false },
-  { num: "04", slug: "full-stack", name: "Full Stack Engineering", desc: "Ship production web apps end-to-end — frontend, backend, database, and deployment", items: ["⚛️ React & Next.js Frontend", "🛠️ Node, APIs & Auth", "🗄️ Postgres & Schema Design", "☁️ CI/CD & Cloud Deploy"], price: "₹1,149", cta: "Explore Full Stack Track", featured: false },
+  { num: "01", slug: "dev-sprint", name: "Dev Sprint", desc: "Intensive, high-energy single-day industry simulation bootcamps", items: ["Live Code Along", "Lab Sprint Challenge", "Performance Evaluation"], price: "₹999", cta: "Explore Workshop", featured: false },
+  { num: "02", slug: "semester-module", name: "Semester Module", desc: "Parallel academic elective integrated directly into your timetable", items: ["Curriculum Mapping", "Software Architecture Foundations", "Weekly Assessments", "Accreditation Records"], price: "₹1,049", cta: "Explore Semester Plan", featured: true },
+  { num: "03", slug: "engineering-immersion", name: "Engineering Immersion", desc: "End-to-end multi-track engineering transformation blueprint", items: ["Advanced Systems Mastery", "Scalability Orchestration", "Industry Sprints", "Capstone Deployment"], price: "₹1,099", cta: "Explore Full Immersion", featured: false },
+  { num: "04", slug: "full-stack", name: "Full Stack Engineering", desc: "Ship production web apps end-to-end — frontend, backend, database, and deployment", items: ["React & Next.js Frontend", "Node, APIs & Auth", "Postgres & Schema Design", "CI/CD & Cloud Deploy"], price: "₹1,149", cta: "Explore Full Stack Track", featured: false },
 ] as const;
 
 const MODULES = [
@@ -44,9 +45,11 @@ const MODULES = [
   { num: "13", slug: "interview-coaching", icon: "🗣️", title: "Interview Pro", tagline: "Mock rounds and technical strategy coaching for high-stakes interviews.", tech: ["STAR", "Rubrics", "Roleplay"], skills: ["Active listening", "Punchy delivery"], rare: "+400 placed across cohorts" },
   { num: "11", slug: "java-enterprise", icon: "☕", title: "Java Enterprise", tagline: "Mastering Spring Boot, JVM internals & high-scale microservices.", tech: ["Java 21", "Spring Boot 3", "K8s"], skills: ["JVM internals", "Microservices"], rare: "Top 5% write GC-aware Java" },
   { num: "12", slug: "dsa-java", icon: "🧩", title: "Full Semester Immersion — DSA in Java", tagline: "Our most comprehensive coding-interview program. 150+ patterns, complexity proofs, MAANG-grade assessments, and weeks of curated graph + DP mastery.", tech: ["Java 21", "JUnit 5", "LeetCode"], skills: ["150+ patterns", "Graphs & DP"], rare: "<1% trace complex DP states" },
+  { num: "14", slug: "aws-cloud-computing", icon: "☁️", title: "AWS Cloud Computing", tagline: "The Complete Cloud Infrastructure — Compute, Networking, Security, DevOps & Containers.", tech: ["AWS", "Docker", "EC2", "EKS"], skills: ["CI/CD pipelines", "VPC & Security"], rare: "Industry Ready Cloud Engineering" },
 ] as const;
 
 const TEAM = [
+  { slug: "sumathi", name: "Dr. S. Sumathi", role: "Founder", emoji: "👩‍🏫", tags: ["AI/ML", "NLP", "Machine Learning"], featured: true, highlights: ["20+ years in academia & research", "Author: Neural Networks for NLP", "₹7.5L MSME funding & $2500 Cohere Grant"] },
   { slug: "karthi", name: "Karthi S", role: "Founder & CEO", emoji: "👨‍💻", tags: ["Generative AI", "Agentic Systems"], featured: false, highlights: ["Founder · iThynx Labs", "12+ institutional rollouts", "Architect, agentic curriculum"] },
   { slug: "kevin", name: "Kevin Jeyaraj", role: "Data Engineer", emoji: "📊", tags: ["Databricks", "Airflow", "PySpark"], featured: true, highlights: ["Lakehouse pipelines at scale", "Airflow + dbt orchestration", "Streaming with Kafka"] },
   { slug: "larissh", name: "Larissh M Aro", role: "AI/ML Engineer", emoji: "🎨", tags: ["Deep Learning", "AWS Cloud"], featured: false, highlights: ["Production LLM fine-tuning", "SageMaker deployments", "RAG + vector retrieval"] },
@@ -58,10 +61,12 @@ const TEAM = [
 function Index() {
   return (
     <div className="text-slate-200 selection:bg-[#4ade80]/30 aurora-bg min-h-screen relative overflow-x-hidden">
-      {/* Page-wide aurora blobs */}
+      {/* Page-wide aurora blobs & grid */}
       <div aria-hidden className="pointer-events-none fixed inset-0 -z-0">
+        <div className="absolute inset-0 grid-bg opacity-30" />
         <div className="aurora-blob animate-aurora" style={{ top: "-10%", left: "-10%", width: "55%", height: "55%", background: "rgba(167,139,250,0.18)" }} />
-        <div className="aurora-blob animate-aurora" style={{ bottom: "-15%", right: "-10%", width: "55%", height: "55%", background: "rgba(74,222,128,0.10)", animationDelay: "-6s" }} />
+        <div className="aurora-blob animate-aurora" style={{ bottom: "-15%", right: "-10%", width: "55%", height: "55%", background: "rgba(74,222,128,0.12)", animationDelay: "-6s" }} />
+        <div className="aurora-blob animate-aurora" style={{ top: "25%", left: "30%", width: "45%", height: "45%", background: "rgba(96,165,250,0.10)", animationDelay: "-12s" }} />
       </div>
 
       <ScrollProgress />
@@ -144,11 +149,12 @@ function Index() {
             { v: "Deploy", l: "Production Ready", c: "#a78bfa" },
           ].map((s, i) => (
             <motion.div key={s.v}
-              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }} transition={{ delay: i * 0.08 }}
-              className="glass-card glow-border tilt sheen p-6 rounded-3xl text-left">
-              <p className="font-serif-display text-3xl md:text-4xl" style={{ color: s.c }}>{s.v}</p>
-              <p className="text-slate-500 text-[10px] uppercase font-bold mt-2 tracking-[0.22em]">{s.l}</p>
+              initial={{ opacity: 0, y: 30, scale: 0.95 }} whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true }} transition={{ delay: i * 0.08, type: "spring", stiffness: 200, damping: 20 }}
+              className="glass-card glow-border tilt sheen p-6 rounded-3xl text-left hover:scale-[1.05] transition-transform duration-300 shadow-xl hover:shadow-[0_20px_40px_rgba(74,222,128,0.15)] group relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              <p className="font-serif-display text-3xl md:text-4xl relative z-10" style={{ color: s.c }}>{s.v}</p>
+              <p className="text-slate-500 text-[10px] uppercase font-bold mt-2 tracking-[0.22em] relative z-10">{s.l}</p>
             </motion.div>
           ))}
         </div>
@@ -160,12 +166,12 @@ function Index() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {FEATURES.map((f, i) => (
               <motion.div key={f.title}
-                initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}
-                className="glass-card glow-border sheen tilt p-8 rounded-[2rem] flex flex-col h-full group">
-                <div className="w-12 h-12 rounded-2xl bg-[#4ade80]/10 border border-[#4ade80]/25 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 group-hover:rotate-6 transition-transform float-y">{f.icon}</div>
-                <h3 className="font-serif-display text-2xl mb-3 text-white">{f.title}</h3>
-                <p className="text-slate-400 text-sm mb-8 flex-grow leading-relaxed">{f.desc}</p>
-                <span className="px-3 py-1 rounded-full border border-[#4ade80]/25 text-[#4ade80] text-[10px] font-bold uppercase w-fit tracking-wider">{f.tag}</span>
+                initial={{ opacity: 0, y: 40, scale: 0.9 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.05, type: "spring", stiffness: 300, damping: 25 }}
+                className="glass-card glow-border sheen tilt p-8 rounded-[2rem] flex flex-col h-full group hover:shadow-[0_20px_50px_rgba(74,222,128,0.1)] hover:-translate-y-2 transition-all duration-300">
+                <div className="w-12 h-12 rounded-2xl bg-[#4ade80]/10 border border-[#4ade80]/25 flex items-center justify-center mb-6 text-2xl group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500 float-y">{f.icon}</div>
+                <h3 className="font-serif-display text-2xl mb-3 text-white group-hover:text-[#4ade80] transition-colors">{f.title}</h3>
+                <p className="text-slate-400 text-sm mb-8 flex-grow leading-relaxed group-hover:text-slate-300 transition-colors">{f.desc}</p>
+                <span className="px-3 py-1 rounded-full border border-[#4ade80]/25 text-[#4ade80] text-[10px] font-bold uppercase w-fit tracking-wider group-hover:bg-[#4ade80]/10 transition-colors">{f.tag}</span>
               </motion.div>
             ))}
           </div>
@@ -229,14 +235,14 @@ function Index() {
               const violet = i % 2 === 1;
               return (
                 <motion.div key={m.slug}
-                  initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}
-                  className={`${spans[i]} group relative overflow-hidden rounded-[2rem] p-8 flex tilt sheen ${
-                    isAccent
-                      ? "flex-col justify-between bg-gradient-to-br from-[#a78bfa]/25 to-[#4ade80]/10 border border-white/10"
-                      : isBanner
-                        ? "glass-card flex-col md:flex-row md:items-center gap-6"
-                        : `glass-card glow-border flex-col ${violet ? "glass-card-violet" : ""}`
-                  }`}>
+                initial={{ opacity: 0, scale: 0.9, y: 40 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06, type: "spring", stiffness: 250, damping: 20 }}
+                className={`${spans[i]} group relative overflow-hidden rounded-[2rem] p-8 flex tilt sheen hover:shadow-[0_20px_50px_rgba(167,139,250,0.15)] hover:-translate-y-2 transition-all duration-300 ${
+                  isAccent
+                    ? "flex-col justify-between bg-gradient-to-br from-[#a78bfa]/25 to-[#4ade80]/10 border border-white/10"
+                    : isBanner
+                      ? "glass-card flex-col md:flex-row md:items-center gap-6"
+                      : `glass-card glow-border flex-col ${violet ? "glass-card-violet" : ""}`
+                }`}>
                   {isBanner && (
                     <div className="hidden md:block w-32 h-32 flex-shrink-0 bg-gradient-to-tr from-[#4ade80] to-[#a78bfa] rounded-full blur-3xl opacity-30" />
                   )}
@@ -287,6 +293,8 @@ function Index() {
             })}
           </div>
         </section>
+
+        <StudentReviews />
 
         <GalleryScatter />
 
@@ -412,7 +420,7 @@ function TeamGrid() {
   );
 }
 
-const COURSE_CATEGORIES = ["All", "AI & ML", "Full Stack", "Languages", "Data"] as const;
+const COURSE_CATEGORIES = ["All", "AI & ML", "Full Stack", "Languages", "Data", "Cloud"] as const;
 type CourseCategory = typeof COURSE_CATEGORIES[number];
 
 const COURSES: { name: string; category: CourseCategory; d4: number; d7: number; d11: number; d30: number }[] = [
@@ -432,6 +440,7 @@ const COURSES: { name: string; category: CourseCategory; d4: number; d7: number;
   { name: "Java Programming & Enterprise Architecture", category: "Languages", d4: 1800, d7: 2300, d11: 2800, d30: 3300 },
   { name: "Data Structures & Algorithms (Java)", category: "Languages", d4: 1700, d7: 2200, d11: 2700, d30: 3200 },
   { name: "Python Programming",                 category: "Languages", d4: 1500, d7: 1900, d11: 2300, d30: 2800 },
+  { name: "AWS Cloud Computing",                category: "Cloud",     d4: 2000, d7: 2500, d11: 3000, d30: 3500 },
 ];
 
 const DURATION_COLS = [
