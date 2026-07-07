@@ -6,28 +6,28 @@ export function IthynxNav() {
   return (
     <nav className="sticky top-0 z-40 glass-nav">
       <div className="flex items-center justify-between px-6 md:px-12 py-4 max-w-7xl mx-auto">
-      <Link to="/" className="text-2xl tracking-tight flex items-center gap-2 font-serif-display">
-        <img src="/logo.png" alt="iThynx Logo" className="w-8 h-8 object-contain" />
-        iThynx<span className="text-[#4ade80]">.</span>
-      </Link>
-      <div className="hidden md:flex space-x-7 text-slate-400 text-xs font-medium uppercase tracking-[0.18em]">
-        <a href="/#features" className="hover:text-white transition-colors duration-300 link-grow">Features</a>
-        <a href="/#modules" className="hover:text-white transition-colors duration-300 link-grow">Modules</a>
-        <a href="/#plans" className="hover:text-white transition-colors duration-300 link-grow">Plans</a>
-        <a href="/#pricing" className="hover:text-white transition-colors duration-300 link-grow">Pricing</a>
-        <a href="/#gallery" className="hover:text-white transition-colors duration-300 link-grow">Gallery</a>
-        <a href="/#team" className="hover:text-white transition-colors duration-300 link-grow">Team</a>
-      </div>
-      <div className="flex items-center space-x-3">
-        <a href="/#pricing" className="hidden sm:block text-xs font-semibold px-4 py-2 border border-white/10 rounded-xl text-slate-200 hover:bg-white/5 transition">Sign In</a>
-        <GetStartedDialog
-          trigger={
-            <button suppressHydrationWarning className="text-xs font-bold px-4 py-2 bg-[#4ade80] text-[#1a1a2e] rounded-xl hover:shadow-[0_0_24px_rgba(74,222,128,0.45)] transition">
-              Get Started
-            </button>
-          }
-        />
-      </div>
+        <Link to="/" className="text-2xl tracking-tight flex items-center gap-2 font-serif-display">
+          <img src="/logo.png" alt="iThynx Logo" className="w-8 h-8 object-contain" />
+          iThynx<span className="text-[#4ade80]">.</span>
+        </Link>
+        <div className="hidden md:flex space-x-7 text-slate-400 text-xs font-medium uppercase tracking-[0.18em]">
+          <a href="/#features" className="hover:text-white transition-colors duration-300 link-grow">Features</a>
+          <a href="/#modules" className="hover:text-white transition-colors duration-300 link-grow">Modules</a>
+          <a href="/#plans" className="hover:text-white transition-colors duration-300 link-grow">Plans</a>
+          <a href="/#pricing" className="hover:text-white transition-colors duration-300 link-grow">Pricing</a>
+          <a href="/#gallery" className="hover:text-white transition-colors duration-300 link-grow">Gallery</a>
+          <a href="/#team" className="hover:text-white transition-colors duration-300 link-grow">Team</a>
+        </div>
+        <div className="flex items-center space-x-3">
+          <a href="/#pricing" className="hidden sm:block text-xs font-semibold px-4 py-2 border border-white/10 rounded-xl text-slate-200 hover:bg-white/5 transition">Sign In</a>
+          <GetStartedDialog
+            trigger={
+              <button suppressHydrationWarning className="text-xs font-bold px-4 py-2 bg-[#4ade80] text-[#1a1a2e] rounded-xl hover:shadow-[0_0_24px_rgba(74,222,128,0.45)] transition">
+                Get Started
+              </button>
+            }
+          />
+        </div>
       </div>
     </nav>
   );
@@ -56,9 +56,13 @@ export function IthynxFooter() {
         <div>
           <h4 className="text-sm font-bold mb-6 text-white">Team</h4>
           <ul className="text-gray-500 text-xs space-y-4 font-medium">
+            <li><a href="/team/sumathi" className="hover:text-blue-400 transition">Dr. S. Sumathi</a></li>
             <li><a href="/team/karthi" className="hover:text-blue-400 transition">Karthi S</a></li>
             <li><a href="/team/kevin" className="hover:text-blue-400 transition">Kevin Jeyaraj</a></li>
             <li><a href="/team/larissh" className="hover:text-blue-400 transition">Larissh M Aro</a></li>
+            <li><a href="/team/prakash" className="hover:text-blue-400 transition">Prakash S</a></li>
+            <li><a href="/team/surya" className="hover:text-blue-400 transition">Surya Narayanan V</a></li>
+            <li><a href="/team/pari" className="hover:text-blue-400 transition">Pari Arul</a></li>
           </ul>
         </div>
         <div>
@@ -72,6 +76,10 @@ export function IthynxFooter() {
               No.16, F1, Kanchi Kamakshi Nagar,<br />
               1st Street, Madipakkam,<br />
               Chennai-91
+            </li>
+            <li className="leading-relaxed mt-4">
+              <span className="block text-white mb-1">Mail ID</span>
+              contact@ithynx.co.in
             </li>
           </ul>
         </div>

@@ -1,6 +1,43 @@
 import type { DevFolioProps } from "@/components/site/DevFolio";
 
 export const TEAM_DATA: Record<string, DevFolioProps> = {
+  sumathi: {
+    firstName: "Dr. S.", rest: "Sumathi", fullName: "Dr. S. Sumathi",
+    tagline: "Academic leader shaping AI & NLP innovation.",
+    role: "Founder | AI Researcher | NLP Strategist",
+    intro: "AI researcher and educator with over two decades of experience in natural language processing and machine learning. Founder driving research-led AI initiatives, mentoring student teams, and translating academic insights into practical products.",
+    emoji: "👩‍🏫",
+    domain: "ai",
+    domainLabel: "AI · NLP Research",
+    highlights: ["20+ years in academia & research", "Author: Neural Networks for NLP", "₹7.5L MSME funding & $2500 Cohere Grant"],
+    techStack: [
+      { name: "NLP / Transformer Models", level: 95, category: "AI" },
+      { name: "Machine Learning", level: 92, category: "Core" },
+      { name: "Research & Publication", level: 93, category: "Academic" },
+      { name: "Python / TensorFlow / PyTorch", level: 90, category: "Tools" },
+      { name: "LLMs & Prompt Engineering", level: 88, category: "Models" },
+      { name: "Curriculum Design", level: 91, category: "Leadership" },
+    ],
+    aboutText: "I bridge academic research and practical AI delivery by mentoring NLP teams, designing AI curricula, and building research-backed language systems for education and enterprise.",
+    quote: "AI education should equip learners to question models, design responsibly, and build systems that make a real difference.",
+    stats: [
+      { value: "20+", tag: "YEARS", title: "Academic Research", description: "Two decades of research, teaching, and applied AI guidance across universities and industry collaborations." },
+      { value: "₹7.5L", tag: "FUNDING", title: "MSME Research Grant", description: "Secured government-backed MSME support for AI productisation and applied research workflows." },
+      { value: "$2500", tag: "GRANT", title: "Cohere Support", description: "Awarded Cohere grant for conversational NLP experiments and language model evaluation." },
+      { value: "1", tag: "BOOK", title: "Published Author", description: "Author of Neural Networks for NLP and advisor for research-driven AI curriculum development." },
+    ],
+    skills: ["NLP · Transformers · Language Models", "Machine Learning Research", "Academic Mentoring", "AI Curriculum & Workshops", "Grant Writing & Product Strategy"],
+    projects: [
+      { emoji: "📚", bg: "blue", tags: ["NLP", "Research"], title: "Neural Language Research Series", description: "Built academic frameworks and hands-on labs covering embeddings, sequence models, and transfer learning for NLP learners." },
+      { emoji: "🧠", bg: "green", tags: ["LLMs", "AI Strategy"], title: "Conversational AI Pilot", description: "Designed prototype systems using LLMs and prompt strategies for education and domain-specific conversational workflows." },
+      { emoji: "🚀", bg: "red", tags: ["Grant", "Innovation"], title: "AI Innovation Incubator", description: "Led a research incubator for student teams, combining mentorship, technical guidance, and grant-backed pilot development." },
+    ],
+    journey: [
+      { current: true, role: "Founder & AI Research Director", org: "Ithynx AI Labs", description: "Leading research-driven AI programs, NLP curriculum design, and grant-funded innovation partnerships across education and enterprise." },
+      { period: "ACADEMIC RESEARCH", role: "Professor & NLP Researcher", org: "Leading University & Research Labs", description: "Conducted foundational research in natural language processing, supervised graduate researchers, and designed advanced AI courses." },
+      { period: "ACADEMIC MENTORING", role: "AI Program Mentor", org: "National Innovation & Training Initiatives", description: "Mentored teams through competitive AI challenges, curriculum workshops, and practical machine learning experiences across institutions." },
+    ],
+  },
   karthi: {
     firstName: "Karthi", rest: "S", fullName: "Karthi S",
     tagline: "Engineering the next generation of software innovators.",

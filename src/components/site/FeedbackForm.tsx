@@ -60,13 +60,13 @@ export function FeedbackForm() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!rating || !comment.trim()) return;
-    
+
     setSubmitting(true);
-    
+
     try {
       const scriptUrl = import.meta.env.VITE_GOOGLE_SHEET_URL;
       const activeDomainObj = DOMAINS.find((d) => d.id === domain) ?? DOMAINS[DOMAINS.length - 1];
-      
+
       if (scriptUrl) {
         const formData = new FormData();
         formData.append("Domain", activeDomainObj.label);
@@ -82,20 +82,20 @@ export function FeedbackForm() {
           mode: "no-cors"
         });
       }
-      
-      const entry: FeedbackEntry = { 
-        domain, 
-        rating, 
-        name: name.trim() || "Anonymous", 
+
+      const entry: FeedbackEntry = {
+        domain,
+        rating,
+        name: name.trim() || "Anonymous",
         cohort: cohort.trim(),
-        comment: comment.trim(), 
-        at: Date.now() 
+        comment: comment.trim(),
+        at: Date.now()
       };
-      
+
       const all = readAll();
       all.push(entry);
       localStorage.setItem(KEY, JSON.stringify(all));
-      
+
       setSent(true);
       setTimeout(() => {
         setSent(false); setRating(0); setName(""); setCohort(""); setComment("");
@@ -121,17 +121,17 @@ export function FeedbackForm() {
           <p className="text-sm text-gray-400 max-w-sm">Pick the domain you want to rate — your review shapes the next cohort and lands on our roadmap board.</p>
         </div>
 
-        <motion.form 
+        <motion.form
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          onSubmit={submit} 
+          onSubmit={submit}
           className="lg:col-span-3 glass-card rounded-3xl p-6 md:p-8 space-y-5 relative overflow-hidden"
         >
           {/* Animated glow background */}
           <div className="absolute inset-0 bg-gradient-to-br from-violet-500/5 to-emerald-500/5 pointer-events-none" />
-          
+
           <motion.div variants={itemVariants} className="relative z-10">
             <label className="text-[10px] uppercase font-mono tracking-widest text-gray-500">Domain</label>
             <div className="flex flex-wrap gap-2 mt-2">
@@ -150,12 +150,12 @@ export function FeedbackForm() {
           <motion.div variants={itemVariants} className="relative z-10">
             <label className="text-[10px] uppercase font-mono tracking-widest text-gray-500">Rating</label>
             <div className="flex gap-2 mt-2" onMouseLeave={() => setHover(0)}>
-              {[1,2,3,4,5].map((n) => (
+              {[1, 2, 3, 4, 5].map((n) => (
                 <button
                   key={n} type="button"
                   onMouseEnter={() => setHover(n)}
                   onClick={() => setRating(n)}
-                  aria-label={`Rate ${n} star${n>1?"s":""}`}
+                  aria-label={`Rate ${n} star${n > 1 ? "s" : ""}`}
                   className={`w-11 h-11 flex items-center justify-center rounded-xl border transition-all duration-300 text-xl ${n <= active ? "bg-gradient-to-br from-violet-400/30 to-emerald-400/20 border-violet-300/50 text-yellow-400 shadow-[0_0_20px_rgba(250,204,21,0.3)] scale-110 -translate-y-1" : "bg-white/[0.02] border-white/10 text-gray-600 hover:text-gray-400 hover:scale-105"}`}
                 >
                   <FaStar />
@@ -206,7 +206,7 @@ export function FeedbackForm() {
       </div>
 
       {recent.length > 0 && (
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -219,7 +219,7 @@ export function FeedbackForm() {
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-sm font-serif-display text-white">{r.name}</span>
                   <span className="text-yellow-400 text-xs flex gap-0.5">
-                    {[1,2,3,4,5].map(n => <FaStar key={n} className={n <= r.rating ? "text-yellow-400" : "text-gray-700"} />)}
+                    {[1, 2, 3, 4, 5].map(n => <FaStar key={n} className={n <= r.rating ? "text-yellow-400" : "text-gray-700"} />)}
                   </span>
                 </div>
                 {r.cohort && <p className="text-[10px] font-mono text-gray-500 mb-2">{r.cohort}</p>}

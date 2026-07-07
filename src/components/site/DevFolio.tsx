@@ -15,6 +15,7 @@ export interface DevFolioProps {
   role: string;
   intro: string;
   emoji: string;
+  profileImage?: string;
   aboutText: string;
   quote?: string;
   domain?: DevDomain;
@@ -28,20 +29,20 @@ export interface DevFolioProps {
 }
 
 const DOMAIN_THEME: Record<DevDomain, { accent: string; accentSoft: string; ring: string; from: string; to: string; label: string; icon: string; tagline: string }> = {
-  ai:         { accent: "text-violet-300",  accentSoft: "bg-violet-400/10 border-violet-300/30",  ring: "rgba(167,139,250,0.45)", from: "from-violet-400",  to: "to-fuchsia-400", label: "AI / ML Engineering",     icon: "🧠", tagline: "Neural systems · LLMs · Agentic AI" },
-  data:       { accent: "text-sky-300",     accentSoft: "bg-sky-400/10 border-sky-300/30",        ring: "rgba(125,211,252,0.45)", from: "from-sky-400",     to: "to-cyan-400",    label: "Data Engineering",        icon: "📊", tagline: "Pipelines · Lakehouse · Orchestration" },
-  fullstack:  { accent: "text-emerald-300", accentSoft: "bg-emerald-400/10 border-emerald-300/30",ring: "rgba(74,222,128,0.45)",  from: "from-emerald-400", to: "to-teal-400",    label: "Full Stack Engineering",  icon: "⚡", tagline: "React · APIs · Cloud · DevOps" },
-  cv:         { accent: "text-amber-300",   accentSoft: "bg-amber-400/10 border-amber-300/30",    ring: "rgba(252,211,77,0.45)",  from: "from-amber-400",   to: "to-orange-400",  label: "Computer Vision & Systems", icon: "👁️", tagline: "YOLO · CNN · Real-time vision" },
-  leadership: { accent: "text-rose-300",    accentSoft: "bg-rose-400/10 border-rose-300/30",      ring: "rgba(251,113,133,0.45)", from: "from-rose-400",    to: "to-violet-400",  label: "Founder · Architect",     icon: "👑", tagline: "Vision · Architecture · Ecosystem" },
-  systems:   { accent: "text-cyan-300",    accentSoft: "bg-cyan-400/10 border-cyan-300/30",      ring: "rgba(34,211,238,0.45)",  from: "from-cyan-400",    to: "to-sky-400",     label: "Systems Engineering",     icon: "⚙️", tagline: "Systems · Automation · Cloud" },
+  ai: { accent: "text-violet-300", accentSoft: "bg-violet-400/10 border-violet-300/30", ring: "rgba(167,139,250,0.45)", from: "from-violet-400", to: "to-fuchsia-400", label: "AI / ML Engineering", icon: "🧠", tagline: "Neural systems · LLMs · Agentic AI" },
+  data: { accent: "text-sky-300", accentSoft: "bg-sky-400/10 border-sky-300/30", ring: "rgba(125,211,252,0.45)", from: "from-sky-400", to: "to-cyan-400", label: "Data Engineering", icon: "📊", tagline: "Pipelines · Lakehouse · Orchestration" },
+  fullstack: { accent: "text-emerald-300", accentSoft: "bg-emerald-400/10 border-emerald-300/30", ring: "rgba(74,222,128,0.45)", from: "from-emerald-400", to: "to-teal-400", label: "Full Stack Engineering", icon: "⚡", tagline: "React · APIs · Cloud · DevOps" },
+  cv: { accent: "text-amber-300", accentSoft: "bg-amber-400/10 border-amber-300/30", ring: "rgba(252,211,77,0.45)", from: "from-amber-400", to: "to-orange-400", label: "Computer Vision & Systems", icon: "👁️", tagline: "YOLO · CNN · Real-time vision" },
+  leadership: { accent: "text-rose-300", accentSoft: "bg-rose-400/10 border-rose-300/30", ring: "rgba(251,113,133,0.45)", from: "from-rose-400", to: "to-violet-400", label: "Founder · Architect", icon: "👑", tagline: "Vision · Architecture · Ecosystem" },
+  systems: { accent: "text-cyan-300", accentSoft: "bg-cyan-400/10 border-cyan-300/30", ring: "rgba(34,211,238,0.45)", from: "from-cyan-400", to: "to-sky-400", label: "Systems Engineering", icon: "⚙️", tagline: "Systems · Automation · Cloud" },
 };
 
 export function DevFolioPage(d: DevFolioProps) {
   const theme = DOMAIN_THEME[(d.domain as DevDomain) ?? "fullstack"] ?? DOMAIN_THEME.fullstack;
   const bgMap: Record<string, string> = {
-    blue:  "bg-gradient-to-br from-sky-500/20 via-violet-500/10 to-transparent border-sky-400/20",
+    blue: "bg-gradient-to-br from-sky-500/20 via-violet-500/10 to-transparent border-sky-400/20",
     green: "bg-gradient-to-br from-emerald-500/20 via-teal-500/10 to-transparent border-emerald-400/20",
-    red:   "bg-gradient-to-br from-rose-500/20 via-amber-500/10 to-transparent border-rose-400/20",
+    red: "bg-gradient-to-br from-rose-500/20 via-amber-500/10 to-transparent border-rose-400/20",
   };
 
   return (
@@ -90,7 +91,11 @@ export function DevFolioPage(d: DevFolioProps) {
                 <div className="w-full h-full rounded-full bg-[#0b0f1e] flex items-center justify-center relative overflow-hidden">
                   <div className="absolute inset-3 rounded-full border border-white/10" />
                   <div className="absolute inset-8 rounded-full border border-white/5" />
-                  <div className="text-8xl select-none filter drop-shadow-xl animate-float-slow">{d.emoji}</div>
+                  {d.profileImage ? (
+                    <img src={d.profileImage} alt={`${d.fullName} profile`} className="w-full h-full object-cover rounded-full" />
+                  ) : (
+                    <div className="text-8xl select-none filter drop-shadow-xl animate-float-slow">{d.emoji}</div>
+                  )}
                   <span className={`absolute bottom-6 px-3 py-1 rounded-full text-[10px] font-mono tracking-widest ${theme.accentSoft} ${theme.accent} border backdrop-blur`}>{theme.icon} {theme.label}</span>
                 </div>
               </div>

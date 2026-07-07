@@ -10,6 +10,7 @@ import { GetStartedDialog } from "@/components/site/GetStartedDialog";
 import { Sparkles } from "@/components/site/Sparkles";
 import { MagneticButton } from "@/components/site/MagneticButton";
 import { StudentReviews } from "@/components/site/StudentReviews";
+import { PROFILE_IMAGES } from "@/data/profileImages";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -50,7 +51,7 @@ const MODULES = [
 
 const TEAM = [
   { slug: "sumathi", name: "Dr. S. Sumathi", role: "Founder", emoji: "👩‍🏫", tags: ["AI/ML", "NLP", "Machine Learning"], featured: true, highlights: ["20+ years in academia & research", "Author: Neural Networks for NLP", "₹7.5L MSME funding & $2500 Cohere Grant"] },
-  { slug: "karthi", name: "Karthi S", role: "Founder & CEO", emoji: "👨‍💻", tags: ["Generative AI", "Agentic Systems"], featured: false, highlights: ["Founder · iThynx Labs", "12+ institutional rollouts", "Architect, agentic curriculum"] },
+  { slug: "karthi", name: "Karthi S", role: "AI Engineer", emoji: "👨‍💻", tags: ["Generative AI", "Agentic Systems"], featured: false, highlights: ["Founder · iThynx Labs", "12+ institutional rollouts", "Architect, agentic curriculum"] },
   { slug: "kevin", name: "Kevin Jeyaraj", role: "Data Engineer", emoji: "📊", tags: ["Databricks", "Airflow", "PySpark"], featured: true, highlights: ["Lakehouse pipelines at scale", "Airflow + dbt orchestration", "Streaming with Kafka"] },
   { slug: "larissh", name: "Larissh M Aro", role: "AI/ML Engineer", emoji: "🎨", tags: ["Deep Learning", "AWS Cloud"], featured: false, highlights: ["Production LLM fine-tuning", "SageMaker deployments", "RAG + vector retrieval"] },
   { slug: "prakash", name: "Prakash S", role: "Intelligent Systems", emoji: "🧪", tags: ["Computer Vision", "RAG Stack"], featured: false, highlights: ["YOLO + real-time vision", "Edge inference pipelines", "Multimodal RAG"] },
@@ -91,7 +92,7 @@ function Index() {
           </motion.h1>
 
           <p className="mt-6 sm:mt-8 text-slate-300 max-w-2xl text-base sm:text-lg md:text-2xl leading-relaxed font-light text-pretty">
-            We come to your college, work hands-on with your students, and make sure they leave with 
+            We come to your college, work hands-on with your students, and make sure they leave with
             <span className="text-white font-medium"> real projects they actually built</span> — not just slides they sat through.
             70% live labs. 30% theory. Zero fluff.
           </p>
@@ -216,8 +217,13 @@ function Index() {
         <section id="modules" className="w-full max-w-7xl mx-auto px-4 py-20 text-left">
           <p className="text-[#4ade80] text-[10px] font-bold tracking-[0.25em] uppercase mb-4">// Deep Curriculum Modules</p>
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
-            <h2 className="font-serif-display text-4xl md:text-6xl headline-gradient max-w-3xl">Inside the <span className="text-[#a78bfa]">Engineering</span> Tracks.</h2>
-            <p className="text-slate-400 text-sm max-w-md">Six advanced modules — production fullstack, JVM internals, DSA mastery, and interview coaching. Live labs, capstones, verifiable certification.</p>
+            <div className="max-w-3xl">
+              <h2 className="font-serif-display text-4xl md:text-6xl headline-gradient">Inside the <span className="text-[#a78bfa]">Engineering</span> Tracks.</h2>
+              <p className="text-slate-400 text-sm max-w-md mt-4">Six advanced modules — production fullstack, JVM internals, DSA mastery, and interview coaching. Live labs, capstones, verifiable certification.</p>
+            </div>
+            <a href="/Ithynx_Proposal_final.pdf" download className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm font-bold text-white transition hover:border-[#4ade80] hover:bg-[#4ade80]/10 focus:outline-none focus:ring-2 focus:ring-[#4ade80]/60">
+              Download Session Proposal
+            </a>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-4">
@@ -229,20 +235,20 @@ function Index() {
                 "md:col-span-2 lg:col-span-2",
                 "md:col-span-4 lg:col-span-2",
                 "md:col-span-4 lg:col-span-6",
+                "md:col-span-2 lg:col-span-2",
               ];
               const isAccent = i === 4;
               const isBanner = i === 5;
               const violet = i % 2 === 1;
               return (
                 <motion.div key={m.slug}
-                initial={{ opacity: 0, scale: 0.9, y: 40 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06, type: "spring", stiffness: 250, damping: 20 }}
-                className={`${spans[i]} group relative overflow-hidden rounded-[2rem] p-8 flex tilt sheen hover:shadow-[0_20px_50px_rgba(167,139,250,0.15)] hover:-translate-y-2 transition-all duration-300 ${
-                  isAccent
+                  initial={{ opacity: 0, scale: 0.9, y: 40 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06, type: "spring", stiffness: 250, damping: 20 }}
+                  className={`${spans[i]} group relative overflow-hidden rounded-[2rem] p-8 flex tilt sheen hover:shadow-[0_20px_50px_rgba(167,139,250,0.15)] hover:-translate-y-2 transition-all duration-300 ${isAccent
                     ? "flex-col justify-between bg-gradient-to-br from-[#a78bfa]/25 to-[#4ade80]/10 border border-white/10"
                     : isBanner
                       ? "glass-card flex-col md:flex-row md:items-center gap-6"
                       : `glass-card glow-border flex-col ${violet ? "glass-card-violet" : ""}`
-                }`}>
+                    }`}>
                   {isBanner && (
                     <div className="hidden md:block w-32 h-32 flex-shrink-0 bg-gradient-to-tr from-[#4ade80] to-[#a78bfa] rounded-full blur-3xl opacity-30" />
                   )}
@@ -347,7 +353,13 @@ function TeamGrid() {
               className="glass-card p-5 sm:p-6 lg:p-8 rounded-2xl sm:rounded-[1.75rem] lg:rounded-[2rem] text-center block group h-full flex flex-col items-center transition-transform duration-150 active:scale-[0.97] tap-highlight-transparent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#4ade80]/60"
             >
               <div className={`w-20 h-20 sm:w-24 sm:h-24 mx-auto mb-4 sm:mb-6 shrink-0 rounded-full p-[2px] ${m.featured ? "bg-gradient-to-br from-[#4ade80] to-[#a78bfa]" : "bg-gradient-to-br from-[#4ade80]/40 to-[#a78bfa]/40"} group-hover:from-[#4ade80] group-hover:to-[#a78bfa] transition`}>
-                <div className="w-full h-full rounded-full bg-[#16213e] flex items-center justify-center text-3xl sm:text-4xl">{m.emoji}</div>
+                <div className="w-full h-full rounded-full bg-[#16213e] overflow-hidden flex items-center justify-center">
+                  {PROFILE_IMAGES[m.slug] ? (
+                    <img src={PROFILE_IMAGES[m.slug]} alt={`${m.name} profile`} className="w-full h-full object-cover" />
+                  ) : (
+                    <div className="text-3xl sm:text-4xl">{m.emoji}</div>
+                  )}
+                </div>
               </div>
               <h3 className="font-serif-display text-lg sm:text-xl text-white leading-tight break-words">{m.name}</h3>
               <p className="text-[#4ade80] text-[10px] font-bold uppercase tracking-[0.2em] sm:tracking-[0.22em] mt-1 mb-3 sm:mb-4">{m.role}</p>
@@ -424,37 +436,37 @@ const COURSE_CATEGORIES = ["All", "AI & ML", "Full Stack", "Languages", "Data", 
 type CourseCategory = typeof COURSE_CATEGORIES[number];
 
 const COURSES: { name: string; category: CourseCategory; d4: number; d7: number; d11: number; d30: number }[] = [
-  { name: "Machine Learning",                   category: "AI & ML",    d4: 1600, d7: 2000, d11: 2500, d30: 2800 },
-  { name: "Deep Learning",                      category: "AI & ML",    d4: 1700, d7: 2100, d11: 2600, d30: 3000 },
-  { name: "Reinforcement Learning",             category: "AI & ML",    d4: 1800, d7: 2300, d11: 2800, d30: 3200 },
-  { name: "Artificial Intelligence",            category: "AI & ML",    d4: 1700, d7: 2100, d11: 2600, d30: 3000 },
-  { name: "Generative AI & Agentic AI",         category: "AI & ML",    d4: 2000, d7: 2500, d11: 3000, d30: 3500 },
-  { name: "Large Language Models (LLMs)",       category: "AI & ML",    d4: 2000, d7: 2500, d11: 3000, d30: 3500 },
-  { name: "Full Stack AI Development",          category: "Full Stack", d4: 2300, d7: 2800, d11: 3500, d30: 4000 },
-  { name: "MERN Stack Development",             category: "Full Stack", d4: 1600, d7: 2000, d11: 2500, d30: 3000 },
-  { name: "Modern Full Stack Development",      category: "Full Stack", d4: 1800, d7: 2300, d11: 2800, d30: 3300 },
+  { name: "Machine Learning", category: "AI & ML", d4: 1600, d7: 2000, d11: 2500, d30: 2800 },
+  { name: "Deep Learning", category: "AI & ML", d4: 1700, d7: 2100, d11: 2600, d30: 3000 },
+  { name: "Reinforcement Learning", category: "AI & ML", d4: 1800, d7: 2300, d11: 2800, d30: 3200 },
+  { name: "Artificial Intelligence", category: "AI & ML", d4: 1700, d7: 2100, d11: 2600, d30: 3000 },
+  { name: "Generative AI & Agentic AI", category: "AI & ML", d4: 2000, d7: 2500, d11: 3000, d30: 3500 },
+  { name: "Large Language Models (LLMs)", category: "AI & ML", d4: 2000, d7: 2500, d11: 3000, d30: 3500 },
+  { name: "Full Stack AI Development", category: "Full Stack", d4: 2300, d7: 2800, d11: 3500, d30: 4000 },
+  { name: "MERN Stack Development", category: "Full Stack", d4: 1600, d7: 2000, d11: 2500, d30: 3000 },
+  { name: "Modern Full Stack Development", category: "Full Stack", d4: 1800, d7: 2300, d11: 2800, d30: 3300 },
   { name: "Backend Development (Node.js/NestJS)", category: "Full Stack", d4: 1800, d7: 2300, d11: 2800, d30: 3300 },
   { name: "Frontend Development (React/Next.js)", category: "Full Stack", d4: 1700, d7: 2200, d11: 2700, d30: 3200 },
-  { name: "Data Engineering",                   category: "Data",       d4: 2000, d7: 2500, d11: 3000, d30: 3500 },
-  { name: "Data Science",                       category: "Data",       d4: 2000, d7: 2500, d11: 3000, d30: 3500 },
+  { name: "Data Engineering", category: "Data", d4: 2000, d7: 2500, d11: 3000, d30: 3500 },
+  { name: "Data Science", category: "Data", d4: 2000, d7: 2500, d11: 3000, d30: 3500 },
   { name: "Java Programming & Enterprise Architecture", category: "Languages", d4: 1800, d7: 2300, d11: 2800, d30: 3300 },
   { name: "Data Structures & Algorithms (Java)", category: "Languages", d4: 1700, d7: 2200, d11: 2700, d30: 3200 },
-  { name: "Python Programming",                 category: "Languages", d4: 1500, d7: 1900, d11: 2300, d30: 2800 },
-  { name: "AWS Cloud Computing",                category: "Cloud",     d4: 2000, d7: 2500, d11: 3000, d30: 3500 },
+  { name: "Python Programming", category: "Languages", d4: 1500, d7: 1900, d11: 2300, d30: 2800 },
+  { name: "AWS Cloud Computing", category: "Cloud", d4: 2000, d7: 2500, d11: 3000, d30: 3500 },
 ];
 
 const DURATION_COLS = [
-  { key: "d4" as const,  label: "4–6 Days",   hint: "Short sprint" },
-  { key: "d7" as const,  label: "7–10 Days",  hint: "Deep dive" },
+  { key: "d4" as const, label: "4–6 Days", hint: "Short sprint" },
+  { key: "d7" as const, label: "7–10 Days", hint: "Deep dive" },
   { key: "d11" as const, label: "11–16 Days", hint: "Full module" },
-  { key: "d30" as const, label: "1 Month",    hint: "Immersive" },
+  { key: "d30" as const, label: "1 Month", hint: "Immersive" },
 ];
 
 const INR = (n: number) => `₹${n.toLocaleString("en-IN")}`;
 
 function PricingInner() {
   const [activeCategory, setActiveCategory] = useState<CourseCategory>("All");
-  const [highlightCol, setHighlightCol] = useState<"d4"|"d7"|"d11"|"d30" | null>(null);
+  const [highlightCol, setHighlightCol] = useState<"d4" | "d7" | "d11" | "d30" | null>(null);
 
   const filtered = activeCategory === "All"
     ? COURSES
@@ -479,11 +491,10 @@ function PricingInner() {
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest transition ${
-                activeCategory === cat
-                  ? "bg-[#4ade80] text-[#1a1a2e]"
-                  : "bg-white/5 border border-white/10 text-slate-400 hover:border-white/25 hover:text-white"
-              }`}
+              className={`px-3 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-widest transition ${activeCategory === cat
+                ? "bg-[#4ade80] text-[#1a1a2e]"
+                : "bg-white/5 border border-white/10 text-slate-400 hover:border-white/25 hover:text-white"
+                }`}
             >
               {cat}
             </button>
@@ -502,9 +513,8 @@ function PricingInner() {
                   key={col.key}
                   onMouseEnter={() => setHighlightCol(col.key)}
                   onMouseLeave={() => setHighlightCol(null)}
-                  className={`py-4 px-4 text-center cursor-default transition ${
-                    highlightCol === col.key ? "bg-[#4ade80]/8" : ""
-                  }`}
+                  className={`py-4 px-4 text-center cursor-default transition ${highlightCol === col.key ? "bg-[#4ade80]/8" : ""
+                    }`}
                 >
                   <p className="text-[12px] font-bold text-white">{col.label}</p>
                   <p className="text-[10px] text-slate-500 mt-0.5 font-normal normal-case tracking-normal">{col.hint}</p>
@@ -523,21 +533,19 @@ function PricingInner() {
               >
                 <td className="py-4 px-5">
                   <p className="text-sm font-semibold text-slate-200 group-hover:text-white transition">{course.name}</p>
-                  <span className={`inline-block mt-1 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-widest ${
-                    course.category === "AI & ML" ? "bg-purple-500/15 text-purple-300 border border-purple-500/20" :
+                  <span className={`inline-block mt-1 px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-widest ${course.category === "AI & ML" ? "bg-purple-500/15 text-purple-300 border border-purple-500/20" :
                     course.category === "Full Stack" ? "bg-blue-500/15 text-blue-300 border border-blue-500/20" :
-                    course.category === "Data" ? "bg-amber-500/15 text-amber-300 border border-amber-500/20" :
-                    "bg-emerald-500/15 text-emerald-300 border border-emerald-500/20"
-                  }`}>{course.category}</span>
+                      course.category === "Data" ? "bg-amber-500/15 text-amber-300 border border-amber-500/20" :
+                        "bg-emerald-500/15 text-emerald-300 border border-emerald-500/20"
+                    }`}>{course.category}</span>
                 </td>
                 {DURATION_COLS.map((col) => (
                   <td
                     key={col.key}
                     onMouseEnter={() => setHighlightCol(col.key)}
                     onMouseLeave={() => setHighlightCol(null)}
-                    className={`py-4 px-4 text-center transition ${
-                      highlightCol === col.key ? "bg-[#4ade80]/8" : ""
-                    }`}
+                    className={`py-4 px-4 text-center transition ${highlightCol === col.key ? "bg-[#4ade80]/8" : ""
+                      }`}
                   >
                     <p className="text-[#4ade80] font-bold text-base tabular-nums">{INR(course[col.key])}</p>
                     <p className="text-[10px] text-slate-600 mt-0.5">per student</p>

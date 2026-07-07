@@ -2,9 +2,9 @@ import { FaWhatsapp } from "react-icons/fa";
 
 export function WhatsAppButton() {
   return (
-    <a 
-      href="https://wa.me/919486159100" 
-      target="_blank" 
+    <a
+      href="https://wa.me/916369983585"
+      target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-[100] bg-[#25D366] hover:bg-[#128C7E] text-white p-3 md:p-4 rounded-full shadow-lg hover:shadow-[0_0_24px_rgba(37,211,102,0.6)] transition-all duration-300 transform hover:-translate-y-2 hover:scale-110 flex items-center justify-center group"
       aria-label="Contact us on WhatsApp"
