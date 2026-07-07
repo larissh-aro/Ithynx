@@ -15,7 +15,7 @@ const PHOTOS: Photo[] = [
   { src: "/ph1.jpeg", caption: "Live Code Along", rotate: -8, top: "0%", left: "2%", width: "260px", z: 2, accent: "bg-emerald-400" },
   { src: "/ph2.jpeg", caption: "Lab Sprint Day ", rotate: 5, top: "8%", left: "30%", width: "320px", z: 4, accent: "bg-blue-400" },
   { src: "/ph3.jpeg", caption: "Class", rotate: -4, top: "4%", left: "62%", width: "280px", z: 3, accent: "bg-amber-400" },
-  { src: "/ph4.jpeg", caption: "Capstone Reviewt", rotate: 9, top: "48%", left: "8%", width: "240px", z: 3, accent: "bg-blue-400" },
+  { src: "/ph4.jpeg", caption: "Capstone Review", rotate: 9, top: "48%", left: "8%", width: "240px", z: 3, accent: "bg-blue-400" },
   { src: "https://images.unsplash.com/photo-1543269865-cbf427effbad?w=700&q=80", caption: "Cohort 2025 · AI Sprint", rotate: -3, top: "52%", left: "36%", width: "340px", z: 5, accent: "bg-emerald-400" },
   { src: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80", caption: "Workshop · LLM Stack", rotate: 7, top: "56%", left: "70%", width: "240px", z: 2, accent: "bg-amber-400" },
 ];
