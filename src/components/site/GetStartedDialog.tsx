@@ -31,11 +31,57 @@ export function GetStartedDialog({ trigger, defaultPlan }: Props) {
   const [step, setStep] = useState(1);
   const [plan, setPlan] = useState(defaultPlan ?? "ai-ml");
   const [role, setRole] = useState("Faculty");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [org, setOrg] = useState("");
+  const [notes, setNotes] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const reset = () => {
     setStep(1);
     setSubmitted(false);
+    setName("");
+    setEmail("");
+    setOrg("");
+    setNotes("");
+    setIsSubmitting(false);
+  };
+
+  const submitForm = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !email || !org) return;
+    
+    setIsSubmitting(true);
+    
+    try {
+      const scriptUrl = import.meta.env.VITE_GOOGLE_SHEET_URL;
+      
+      if (scriptUrl) {
+        const formData = new FormData();
+        formData.append("FormType", "GetStarted");
+        formData.append("Plan", TRACKS.find(t => t.id === plan)?.label || plan);
+        formData.append("Name", name);
+        formData.append("Email", email);
+        formData.append("Institution", org);
+        formData.append("Role", role);
+        formData.append("Notes", notes);
+        formData.append("Date", new Date().toISOString());
+
+        await fetch(scriptUrl, {
+          method: "POST",
+          body: formData,
+          mode: "no-cors"
+        });
+      }
+      
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Failed to submit form", error);
+      setSubmitted(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -120,25 +166,22 @@ export function GetStartedDialog({ trigger, defaultPlan }: Props) {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -10 }}
               className="space-y-4 py-2"
-              onSubmit={(e) => {
-                e.preventDefault();
-                setSubmitted(true);
-              }}
+              onSubmit={submitForm}
               id="getstarted-form"
             >
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <Label htmlFor="name" className="text-xs text-slate-400">Name</Label>
-                  <Input id="name" required className="bg-white/5 border-white/10 mt-1" />
+                  <Input id="name" value={name} onChange={(e) => setName(e.target.value)} required className="bg-white/5 border-white/10 mt-1" />
                 </div>
                 <div>
                   <Label htmlFor="email" className="text-xs text-slate-400">Email</Label>
-                  <Input id="email" type="email" required className="bg-white/5 border-white/10 mt-1" />
+                  <Input id="email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required className="bg-white/5 border-white/10 mt-1" />
                 </div>
               </div>
               <div>
                 <Label htmlFor="org" className="text-xs text-slate-400">Institution / Company</Label>
-                <Input id="org" required className="bg-white/5 border-white/10 mt-1" />
+                <Input id="org" value={org} onChange={(e) => setOrg(e.target.value)} required className="bg-white/5 border-white/10 mt-1" />
               </div>
               <div>
                 <Label className="text-xs text-slate-400">I am a…</Label>
@@ -161,7 +204,7 @@ export function GetStartedDialog({ trigger, defaultPlan }: Props) {
               </div>
               <div>
                 <Label htmlFor="notes" className="text-xs text-slate-400">Anything we should know?</Label>
-                <Textarea id="notes" rows={2} className="bg-white/5 border-white/10 mt-1" />
+                <Textarea id="notes" value={notes} onChange={(e) => setNotes(e.target.value)} rows={2} className="bg-white/5 border-white/10 mt-1" />
               </div>
             </motion.form>
           )}
@@ -187,10 +230,11 @@ export function GetStartedDialog({ trigger, defaultPlan }: Props) {
             ) : (
               <button
                 type="submit"
+                disabled={isSubmitting}
                 form="getstarted-form"
-                className="px-6 py-2.5 rounded-lg bg-gradient-to-r from-[#4ade80] to-[#a78bfa] text-[#1a1a2e] text-xs font-bold uppercase tracking-widest hover:opacity-95 transition"
+                className="px-6 py-2.5 rounded-lg bg-gradient-to-r from-[#4ade80] to-[#a78bfa] text-[#1a1a2e] text-xs font-bold uppercase tracking-widest hover:opacity-95 transition disabled:opacity-50"
               >
-                Request callback
+                {isSubmitting ? "Sending..." : "Request callback"}
               </button>
             )}
           </DialogFooter>

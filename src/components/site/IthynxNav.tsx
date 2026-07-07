@@ -11,12 +11,12 @@ export function IthynxNav() {
         iThynx<span className="text-[#4ade80]">.</span>
       </Link>
       <div className="hidden md:flex space-x-7 text-slate-400 text-xs font-medium uppercase tracking-[0.18em]">
-        <a href="/#features" className="hover:text-white transition">Features</a>
-        <a href="/#modules" className="hover:text-white transition">Modules</a>
-        <a href="/#plans" className="hover:text-white transition">Plans</a>
-        <a href="/#pricing" className="hover:text-white transition">Pricing</a>
-        <a href="/#gallery" className="hover:text-white transition">Gallery</a>
-        <a href="/#team" className="hover:text-white transition">Team</a>
+        <a href="/#features" className="hover:text-white transition-colors duration-300 link-grow">Features</a>
+        <a href="/#modules" className="hover:text-white transition-colors duration-300 link-grow">Modules</a>
+        <a href="/#plans" className="hover:text-white transition-colors duration-300 link-grow">Plans</a>
+        <a href="/#pricing" className="hover:text-white transition-colors duration-300 link-grow">Pricing</a>
+        <a href="/#gallery" className="hover:text-white transition-colors duration-300 link-grow">Gallery</a>
+        <a href="/#team" className="hover:text-white transition-colors duration-300 link-grow">Team</a>
       </div>
       <div className="flex items-center space-x-3">
         <a href="/#pricing" className="hidden sm:block text-xs font-semibold px-4 py-2 border border-white/10 rounded-xl text-slate-200 hover:bg-white/5 transition">Sign In</a>
@@ -67,6 +67,12 @@ export function IthynxFooter() {
             <li><a href="#" className="hover:text-blue-400 transition">About</a></li>
             <li><a href="#" className="hover:text-blue-400 transition">Contact</a></li>
             <li><Link to="/terms" className="hover:text-blue-400 transition">Terms & Conditions</Link></li>
+            <li className="leading-relaxed mt-4">
+              <span className="block text-white mb-1">Address:</span>
+              No.16, F1, Kanchi Kamakshi Nagar,<br />
+              1st Street, Madipakkam,<br />
+              Chennai-91
+            </li>
           </ul>
         </div>
       </div>
