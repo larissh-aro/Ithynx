@@ -7,4 +7,5 @@ export const PROFILE_IMAGES: Record<string, string> = {
     surya: "/suriya_profile.jpeg",
     pari: "/pari_profile.jpeg",
     kevin: "/kevin_profile.jpeg",
+    sumathi: "/sumathimam_profile.jpeg",
 };
