@@ -15,7 +15,7 @@ import { PROFILE_IMAGES } from "@/data/profileImages";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "iThynx — Next-Gen LMS for Software Engineering | Think Human. Build Scalable." },
+      { title: "iThynx — Next-Gen LMS for Software Engineering | Practice First.Theory Second." },
       { name: "description", content: "Production-grade software engineering training for institutions. Human practitioner-led labs, system-building gateways, live deployment." },
     ],
   }),
@@ -50,13 +50,13 @@ const MODULES = [
 ] as const;
 
 const TEAM = [
-  { slug: "sumathi", name: "Dr. S. Sumathi", role: "Founder", emoji: "👩‍🏫", tags: ["AI/ML", "NLP", "Machine Learning"], featured: true, highlights: ["20+ years in academia & research", "Author: Neural Networks for NLP", "₹7.5L MSME funding & $2500 Cohere Grant"] },
-  { slug: "karthi", name: "Karthi S", role: "AI Engineer", emoji: "👨‍💻", tags: ["Generative AI", "Agentic Systems"], featured: false, highlights: ["Founder · iThynx Labs", "12+ institutional rollouts", "Architect, agentic curriculum"] },
-  { slug: "kevin", name: "Kevin Jeyaraj", role: "Data Engineer", emoji: "📊", tags: ["Databricks", "Airflow", "PySpark"], featured: true, highlights: ["Lakehouse pipelines at scale", "Airflow + dbt orchestration", "Streaming with Kafka"] },
-  { slug: "larissh", name: "Larissh M Aro", role: "AI/ML Engineer", emoji: "🎨", tags: ["Deep Learning", "AWS Cloud"], featured: false, highlights: ["Production LLM fine-tuning", "SageMaker deployments", "RAG + vector retrieval"] },
-  { slug: "prakash", name: "Prakash S", role: "Intelligent Systems", emoji: "🧪", tags: ["Computer Vision", "RAG Stack"], featured: false, highlights: ["YOLO + real-time vision", "Edge inference pipelines", "Multimodal RAG"] },
-  { slug: "surya", name: "Surya Narayanan V", role: "Cloud & Automation", emoji: "🚀", tags: ["React UI", "Docker"], featured: false, highlights: ["Full-stack React + Node", "Dockerized CI/CD", "Cloud automation"] },
-  { slug: "pari", name: "Pari Arul", role: "Java Full Stack & MERN", emoji: "☕", tags: ["Spring Boot", "MERN", "MySQL"], featured: false, highlights: ["3+ yrs Java + MERN", "Spring Security + JWT", "Docker · Nginx · CI/CD"] },
+  { slug: "sumathi", name: "Dr. S. Sumathi", role: "Founder & CEO", emoji: "👩‍🏫", tags: ["AI/ML", "NLP", "Machine Learning"], featured: true, highlights: ["20+ years in academia & research", "Author: Neural Networks for NLP", "₹7.5L MSME funding & $2500 Cohere Grant"] },
+  { slug: "karthi", name: "Karthi S", role: "Chief Executive Director", emoji: "👨‍💻", tags: ["GenAI", "Agentic AI", "LLM", "Advanced RAG"], featured: false, highlights: ["Founder · iThynx Labs", "12+ institutional rollouts", "Architect, agentic curriculum"] },
+  { slug: "kevin", name: "Kevin Jeyaraj", role: "Senior Data Analyst", emoji: "📊", tags: ["Databricks", "Airflow", "PySpark"], featured: true, highlights: ["Lakehouse pipelines at scale", "Airflow + dbt orchestration", "Streaming with Kafka"] },
+  { slug: "larissh", name: "Larissh M Aro", role: "Head - Brand and Digital Marketing ", emoji: "🎨", tags: ["Deep Learning", "AWS Cloud"], featured: false, highlights: ["Production LLM fine-tuning", "SageMaker deployments", "RAG + vector retrieval"] },
+  { slug: "prakash", name: "Prakash S", role: "Head - Academic Operations", emoji: "🧪", tags: ["Computer Vision", "RAG Stack"], featured: false, highlights: ["YOLO + real-time vision", "Edge inference pipelines", "Multimodal RAG"] },
+  { slug: "surya", name: "Surya Narayanan V", role: "Head - Strategic Partnerships", emoji: "🚀", tags: ["React UI", "Docker"], featured: false, highlights: ["Full-stack React + Node", "Dockerized CI/CD", "Cloud automation"] },
+  { slug: "pari", name: "Pari Arul", role: "Senior Software Engineer", emoji: "☕", tags: ["Spring Boot", "MERN", "MySQL"], featured: false, highlights: ["3+ yrs Java + MERN", "Spring Security + JWT", "Docker · Nginx · CI/CD"] },
 ];
 
 function Index() {
@@ -75,7 +75,7 @@ function Index() {
 
       <main className="flex flex-col items-center text-center px-4 sm:px-6 relative z-10">
         {/* HERO */}
-        <section className="relative w-full flex flex-col items-center pt-16 sm:pt-20 md:pt-28 pb-10 sm:pb-12">
+        <section className="relative w-full flex flex-col items-center pt-24 sm:pt-28 md:pt-32 lg:pt-36 pb-12 sm:pb-16">
           <Sparkles count={36} />
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full aurora-pill text-[10px] tracking-[0.22em] sm:tracking-[0.25em] uppercase font-semibold mb-5 sm:mb-7">
@@ -83,12 +83,12 @@ function Index() {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#4ade80] opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-[#4ade80]" />
             </span>
-            Cohort 07 · Enrolling now
+            Enrolling now
           </motion.div>
 
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}
             className="font-serif-display text-[2.5rem] xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.05] max-w-5xl tracking-tight headline-gradient text-balance">
-            Think Human.<br />Build <span className="text-gradient-flow">Scalable</span>.
+            Practice First<br /><span className="text-white">Theory</span> <span className="text-gradient-flow">Second</span>
           </motion.h1>
 
           <p className="mt-6 sm:mt-8 text-slate-300 max-w-2xl text-base sm:text-lg md:text-2xl leading-relaxed font-light text-pretty">
@@ -254,9 +254,11 @@ function Index() {
                   )}
                   <div className={`${isBanner ? "flex-1" : ""}`}>
                     {!isBanner && !isAccent && (
-                      <div className="flex items-center justify-between mb-6">
-                        <div className={`w-12 h-12 rounded-2xl ${violet ? "bg-[#a78bfa]/10 border border-[#a78bfa]/25" : "bg-[#4ade80]/10 border border-[#4ade80]/25"} flex items-center justify-center text-2xl group-hover:scale-110 transition-transform`}>{m.icon}</div>
-                        <span className="text-slate-500 text-[10px] font-bold tracking-[0.25em] uppercase">Mod {m.num}</span>
+                      <div className="mb-6 flex items-start justify-between gap-3">
+                        <div className={`w-12 h-12 shrink-0 rounded-2xl ${violet ? "bg-[#a78bfa]/10 border border-[#a78bfa]/25" : "bg-[#4ade80]/10 border border-[#4ade80]/25"} flex items-center justify-center text-2xl group-hover:scale-110 transition-transform`}>{m.icon}</div>
+                        <div className="ml-auto flex h-12 items-center">
+                          <span className="text-slate-500 text-[10px] font-bold tracking-[0.25em] uppercase leading-none">Mod {m.num}</span>
+                        </div>
                       </div>
                     )}
                     <h3 className={`font-serif-display ${isBanner ? "text-3xl md:text-4xl" : "text-2xl"} mb-3 text-white`}>{m.title}</h3>

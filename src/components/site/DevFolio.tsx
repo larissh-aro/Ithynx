@@ -92,7 +92,7 @@ export function DevFolioPage(d: DevFolioProps) {
                   <div className="absolute inset-3 rounded-full border border-white/10" />
                   <div className="absolute inset-8 rounded-full border border-white/5" />
                   {d.profileImage ? (
-                    <img src={d.profileImage} alt={`${d.fullName} profile`} className="w-full h-full object-cover rounded-full" />
+                    <img src={d.profileImage} alt={`${d.fullName} profile`} className="w-full h-full object-cover rounded-full translate-y-2" />
                   ) : (
                     <div className="text-8xl select-none filter drop-shadow-xl animate-float-slow">{d.emoji}</div>
                   )}
@@ -198,8 +198,12 @@ export function DevFolioPage(d: DevFolioProps) {
                 viewport={{ once: true }} transition={{ delay: idx * 0.1 }}
                 className="glass-card rounded-2xl p-5 flex flex-col hover:-translate-y-1.5 transition group"
               >
-                <div className={`w-full h-44 rounded-xl border ${bgMap[pr.bg]} flex items-center justify-center text-5xl mb-4 select-none relative overflow-hidden`}>
-                  <span className="filter drop-shadow-xl group-hover:scale-110 transition-transform duration-500">{pr.emoji}</span>
+                <div className={`w-full h-44 rounded-xl border ${bgMap[pr.bg]} flex items-center justify-center mb-4 select-none relative overflow-hidden`}>
+                  {pr.emoji.startsWith("/") ? (
+                    <img src={pr.emoji} alt={pr.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  ) : (
+                    <span className="text-5xl filter drop-shadow-xl group-hover:scale-110 transition-transform duration-500">{pr.emoji}</span>
+                  )}
                 </div>
                 <div className="flex flex-wrap gap-1.5 text-[10px] font-mono mb-3">
                   {pr.tags.map((t) => (

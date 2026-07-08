@@ -18,8 +18,15 @@ export function IthynxNav() {
           <a href="/#gallery" className="hover:text-white transition-colors duration-300 link-grow">Gallery</a>
           <a href="/#team" className="hover:text-white transition-colors duration-300 link-grow">Team</a>
         </div>
-        <div className="flex items-center space-x-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <a href="/#pricing" className="hidden sm:block text-xs font-semibold px-4 py-2 border border-white/10 rounded-xl text-slate-200 hover:bg-white/5 transition">Sign In</a>
+          <a
+            href="/Ithynx_Proposal_final.pdf"
+            download
+            className="hidden sm:inline-flex items-center justify-center rounded-xl border border-[#4ade80]/30 bg-[#4ade80]/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#4ade80] transition hover:bg-[#4ade80]/20"
+          >
+            Proposal
+          </a>
           <GetStartedDialog
             trigger={
               <button suppressHydrationWarning className="text-xs font-bold px-4 py-2 bg-[#4ade80] text-[#1a1a2e] rounded-xl hover:shadow-[0_0_24px_rgba(74,222,128,0.45)] transition">

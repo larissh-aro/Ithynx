@@ -28,9 +28,9 @@ export const TEAM_DATA: Record<string, DevFolioProps> = {
     ],
     skills: ["NLP · Transformers · Language Models", "Machine Learning Research", "Academic Mentoring", "AI Curriculum & Workshops", "Grant Writing & Product Strategy"],
     projects: [
-      { emoji: "📚", bg: "blue", tags: ["NLP", "Research"], title: "Neural Language Research Series", description: "Built academic frameworks and hands-on labs covering embeddings, sequence models, and transfer learning for NLP learners." },
-      { emoji: "🧠", bg: "green", tags: ["LLMs", "AI Strategy"], title: "Conversational AI Pilot", description: "Designed prototype systems using LLMs and prompt strategies for education and domain-specific conversational workflows." },
-      { emoji: "🚀", bg: "red", tags: ["Grant", "Innovation"], title: "AI Innovation Incubator", description: "Led a research incubator for student teams, combining mentorship, technical guidance, and grant-backed pilot development." },
+      { emoji: "/pic1.jpeg", bg: "blue", tags: ["NLP", "Research"], title: "Neural Language Research Series", description: "Built academic frameworks and hands-on labs covering embeddings, sequence models, and transfer learning for NLP learners." },
+      { emoji: "/pic2.jpeg", bg: "green", tags: ["LLMs", "AI Strategy"], title: "Conversational AI Pilot", description: "Designed prototype systems using LLMs and prompt strategies for education and domain-specific conversational workflows." },
+      { emoji: "/pic3.jpeg", bg: "red", tags: ["Grant", "Innovation"], title: "AI Innovation Incubator", description: "Led a research incubator for student teams, combining mentorship, technical guidance, and grant-backed pilot development." },
     ],
     journey: [
       { current: true, role: "Founder & AI Research Director", org: "Ithynx AI Labs", description: "Leading research-driven AI programs, NLP curriculum design, and grant-funded innovation partnerships across education and enterprise." },
@@ -65,9 +65,9 @@ export const TEAM_DATA: Record<string, DevFolioProps> = {
     ],
     skills: ["React / Next.js / Full Stack", "Systems Architecture / Design Patterns", "Node.js / Cloud / DevOps", "Spatial Modeling / Analytics", "IoT Systems"],
     projects: [
-      { emoji: "💻", bg: "blue", tags: ["Web App", "Assessments"], title: "Dev Mock Interview Platform", description: "Interactive software system designed to help students prepare for technical and HR interviews through structured rubrics and real-time execution telemetry." },
-      { emoji: "⚡", bg: "green", tags: ["Playwright", "Workflows"], title: "Ecosystem Workflow Engine", description: "Production platform utilizing Playwright to orchestrate content pipelines, automated testing, and execution feedback." },
-      { emoji: "📝", bg: "red", tags: ["Database", "NextJS"], title: "Academic Assessment System", description: "Assessment engine optimizing difficulty vectors, subject syllabus criteria, and grading database schemas." },
+      { emoji: "/pic1.jpeg", bg: "blue", tags: ["Web App", "Assessments"], title: "Dev Mock Interview Platform", description: "Interactive software system designed to help students prepare for technical and HR interviews through structured rubrics and real-time execution telemetry." },
+      { emoji: "/pic2.jpeg", bg: "green", tags: ["Playwright", "Workflows"], title: "Ecosystem Workflow Engine", description: "Production platform utilizing Playwright to orchestrate content pipelines, automated testing, and execution feedback." },
+      { emoji: "/pic3.jpeg", bg: "red", tags: ["Database", "NextJS"], title: "Academic Assessment System", description: "Assessment engine optimizing difficulty vectors, subject syllabus criteria, and grading database schemas." },
     ],
     journey: [
       { current: true, role: "Founder & Chief Architecture Lead", org: "Software Engineering Ecosystem", description: "Consolidated core technical operations into a project-based development ecosystem. Scaling advanced technical alignment models across academic systems while overseeing end-to-end stack strategy and software architectures." },
@@ -100,9 +100,9 @@ export const TEAM_DATA: Record<string, DevFolioProps> = {
     ],
     skills: ["Data Engineering & Orchestration", "PySpark & SQL Development", "Data Quality & Exception Frameworks", "Advanced Data Pipelines & ETL", "Certified Lakehouse Specialist"],
     projects: [
-      { emoji: "🚀", bg: "blue", tags: ["Airflow", "Telemetry"], title: "Star Alliance Sentinel", description: "DataCamp Awarded: A DAG Airflow framework for idempotent multi-regional flight telemetry ingestion." },
-      { emoji: "☁️", bg: "green", tags: ["Databricks", "Workflows"], title: "Legacy Migration", description: "Modernized 3,000+ lines of legacy code to Databricks Lakehouse with optimized workflow logic." },
-      { emoji: "🛡️", bg: "red", tags: ["DLQ", "Quality"], title: "Data Quality Framework", description: "Developed exception identification for 52 distinct types using Dead Letter Queues (DLQ) to ensure 100% uptime." },
+      { emoji: "/pic1.jpeg", bg: "blue", tags: ["Airflow", "Telemetry"], title: "Star Alliance Sentinel", description: "DataCamp Awarded: A DAG Airflow framework for idempotent multi-regional flight telemetry ingestion." },
+      { emoji: "/pic2.jpeg", bg: "green", tags: ["Databricks", "Workflows"], title: "Legacy Migration", description: "Modernized 3,000+ lines of legacy code to Databricks Lakehouse with optimized workflow logic." },
+      { emoji: "/pic3.jpeg", bg: "red", tags: ["DLQ", "Quality"], title: "Data Quality Framework", description: "Developed exception identification for 52 distinct types using Dead Letter Queues (DLQ) to ensure 100% uptime." },
     ],
     journey: [
       { current: true, role: "Data Engineer", org: "Avasoft", description: "Architected centralized Airflow layers, engineered production pipelines for 1TB+ datasets, and implemented robust data quality frameworks for BI and Product teams." },
@@ -135,9 +135,9 @@ export const TEAM_DATA: Record<string, DevFolioProps> = {
     ],
     skills: ["Systems Engineer", "Full Stack Developer", "Automation Engineer", "Cloud & DevOps Engineer", "Enterprise Software Developer"],
     projects: [
-      { emoji: "👁️", bg: "blue", tags: ["Systems", "Python"], title: "Secure Identity & Asset Platform", description: "A secure software platform managing access control and identifying media assets from large-scale datasets." },
-      { emoji: "🤖", bg: "green", tags: ["Orchestration", "Workflows"], title: "Distributed Data Processing Pipeline", description: "Built a scalable data analysis and extraction engine with real-time reporting workflows." },
-      { emoji: "⚡", bg: "red", tags: ["Task Tools", "APIs"], title: "Collaborative Task Management App", description: "Developed a modern task management application integrating real-time collaboration tools, backend APIs, and secure cloud deployment architectures." },
+      { emoji: "/pic1.jpeg", bg: "blue", tags: ["Systems", "Python"], title: "Secure Identity & Asset Platform", description: "A secure software platform managing access control and identifying media assets from large-scale datasets." },
+      { emoji: "/pic2.jpeg", bg: "green", tags: ["Orchestration", "Workflows"], title: "Distributed Data Processing Pipeline", description: "Built a scalable data analysis and extraction engine with real-time reporting workflows." },
+      { emoji: "/pic3.jpeg", bg: "red", tags: ["Task Tools", "APIs"], title: "Collaborative Task Management App", description: "Developed a modern task management application integrating real-time collaboration tools, backend APIs, and secure cloud deployment architectures." },
     ],
     journey: [
       { current: true, role: "Systems Engineer", org: "AGH", description: "Focusing on full-stack systems, cloud-deployed automation workflows, advanced integrations, and digital media management infrastructures." },
@@ -173,9 +173,9 @@ export const TEAM_DATA: Record<string, DevFolioProps> = {
     ],
     skills: ["Full Stack Developer", "Systems Automation Engineer", "Cloud Engineer", "IoT Systems Developer", "Backend Developer"],
     projects: [
-      { emoji: "🌾", bg: "blue", tags: ["IoT Modules", "Firebase"], title: "Agro-based IoT & Automation System", description: "An agricultural framework uniting field hardware sensors, custom data processing modules, live weather APIs, and automated alert services." },
-      { emoji: "🗺️", bg: "green", tags: ["Spatial Analysis", "Data Models"], title: "LULC-GDP Fund Utilization Model", description: "An advanced geospatial analytical mapping framework correlating structural land-use variations directly with regional GDP metrics for public study evaluation." },
-      { emoji: "🗣️", bg: "red", tags: ["Speech Pipeline", "Bilingual"], title: "Tamil-English Speech & Text Pipeline", description: "Engineered robust cross-language processing infrastructure using speech-to-text integration mixed with customized translation logic channels." },
+      { emoji: "/pic1.jpeg", bg: "blue", tags: ["IoT Modules", "Firebase"], title: "Agro-based IoT & Automation System", description: "An agricultural framework uniting field hardware sensors, custom data processing modules, live weather APIs, and automated alert services." },
+      { emoji: "/pic2.jpeg", bg: "green", tags: ["Spatial Analysis", "Data Models"], title: "LULC-GDP Fund Utilization Model", description: "An advanced geospatial analytical mapping framework correlating structural land-use variations directly with regional GDP metrics for public study evaluation." },
+      { emoji: "/pic3.jpeg", bg: "red", tags: ["Speech Pipeline", "Bilingual"], title: "Tamil-English Speech & Text Pipeline", description: "Engineered robust cross-language processing infrastructure using speech-to-text integration mixed with customized translation logic channels." },
     ],
     journey: [
       { current: true, role: "Full Stack & Systems Engineer", org: "AGH", description: "Architecting full-stack solutions, orchestrating workflow pipelines, managing automated cloud execution layers, and debugging production-grade enterprise instances." },
@@ -210,9 +210,9 @@ export const TEAM_DATA: Record<string, DevFolioProps> = {
     ],
     skills: ["Systems Engineer", "Full Stack Developer", "Computer Vision Engineer", "Data Analytics Engineer", "Workflow Developer"],
     projects: [
-      { emoji: "🚗", bg: "blue", tags: ["YOLOv8", "IoT Modules"], title: "Automated Traffic Signal System", description: "Developed a real-time traffic signal automation platform using computer vision for vehicle detection and IoT transmitter-receiver modules for emergency vehicle prioritization override control." },
-      { emoji: "✈️", bg: "green", tags: ["FastAPI", "API Routes"], title: "Automated Travel Assistant Platform", description: "Built an automated travel planning engine using search APIs, speech synthesis, and customized recommendation logic for real-time travel assistance." },
-      { emoji: "📊", bg: "red", tags: ["Power BI", "SQL Analytics"], title: "Sales Performance Dashboard", description: "Created an interactive metrics platform processing raw datasets to analyze revenue, margin trends, customer actions, product optimization, and strategic performance decision structures." },
+      { emoji: "/pic1.jpeg", bg: "blue", tags: ["YOLOv8", "IoT Modules"], title: "Automated Traffic Signal System", description: "Developed a real-time traffic signal automation platform using computer vision for vehicle detection and IoT transmitter-receiver modules for emergency vehicle prioritization override control." },
+      { emoji: "/pic2.jpeg", bg: "green", tags: ["FastAPI", "API Routes"], title: "Automated Travel Assistant Platform", description: "Built an automated travel planning engine using search APIs, speech synthesis, and customized recommendation logic for real-time travel assistance." },
+      { emoji: "/pic3.jpeg", bg: "red", tags: ["Power BI", "SQL Analytics"], title: "Sales Performance Dashboard", description: "Created an interactive metrics platform processing raw datasets to analyze revenue, margin trends, customer actions, product optimization, and strategic performance decision structures." },
     ],
     journey: [
       { current: true, role: "Systems & CV Engineer", org: "AGH", description: "Working as a Systems & CV Engineer at AGH, focusing on automated systems, workflow pipelines, and responsive applications." },
@@ -248,9 +248,9 @@ export const TEAM_DATA: Record<string, DevFolioProps> = {
     ],
     skills: ["Java Full Stack Developer", "MERN Stack Developer", "REST API Engineer", "Spring Security & JWT/OAuth", "DevOps & Cloud Deployment"],
     projects: [
-      { emoji: "🏥", bg: "blue", tags: ["Spring Boot", "React", "MySQL"], title: "Hospital Management System", description: "Role-based hospital platform with patient registration, appointment scheduling, Electronic Medical Records (EMR), Spring Security + JWT auth, dashboards, and optimized MySQL retrieval." },
-      { emoji: "🧹", bg: "green", tags: ["MERN", "Nest", "Docker"], title: "Cleaning Workforce Management", description: "Workforce attendance and task allocation platform with role-based access, dashboard analytics, employee tracking, and scalable Nest + Next.js architecture." },
-      { emoji: "🎓", bg: "red", tags: ["Java", "Training"], title: "Java Full Stack Training Program", description: "Delivered end-to-end Java Full Stack training at Login360 — Core & Advanced Java, Spring Boot, React.js, MySQL, and industry-level capstone project mentoring." },
+      { emoji: "/pic1.jpeg", bg: "blue", tags: ["Spring Boot", "React", "MySQL"], title: "Hospital Management System", description: "Role-based hospital platform with patient registration, appointment scheduling, Electronic Medical Records (EMR), Spring Security + JWT auth, dashboards, and optimized MySQL retrieval." },
+      { emoji: "/pic2.jpeg", bg: "green", tags: ["MERN", "Nest", "Docker"], title: "Cleaning Workforce Management", description: "Workforce attendance and task allocation platform with role-based access, dashboard analytics, employee tracking, and scalable Nest + Next.js architecture." },
+      { emoji: "/pic3.jpeg", bg: "red", tags: ["Java", "Training"], title: "Java Full Stack Training Program", description: "Delivered end-to-end Java Full Stack training at Login360 — Core & Advanced Java, Spring Boot, React.js, MySQL, and industry-level capstone project mentoring." },
     ],
     journey: [
       { current: true, period: "SEP 2025 — JUN 2026", role: "Java Full Stack Trainer & Developer", org: "Login360 Technologies", description: "Delivering Java Full Stack training on Core Java, Advanced Java, Spring Boot, React.js, and MySQL. Building real-time apps, designing REST APIs, mentoring students, and shipping authentication systems with Spring Security and JWT." },

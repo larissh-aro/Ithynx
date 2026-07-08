@@ -23,13 +23,20 @@ const TRACKS = [
   { id: "full-stack", label: "Full Stack Development", hint: "MERN, React/Next.js, Node, Full Stack AI" },
   { id: "languages", label: "Programming Languages", hint: "Python, Java, DSA in Java, Enterprise" },
   { id: "data", label: "Data Engineering & Science", hint: "Pipelines, ETL, Data Science" },
-  { id: "multiple", label: "Multiple Courses", hint: "We'll figure out the right combo together" },
+  { id: "modern-fullstack", label: "Modern Fullstack", hint: "Next.js, Node, Postgres, Docker" },
+  { id: "mern-architecture", label: "MERN Architecture", hint: "MongoDB, Express, React, Node" },
+  { id: "data-engineering", label: "Data Engineering", hint: "Kafka, Spark, Airflow, ETL pipelines" },
+  { id: "interview-pro", label: "Interview Pro", hint: "Mock rounds, technical strategy coaching" },
+  { id: "java-enterprise", label: "Java Enterprise", hint: "Spring Boot, JVM internals, microservices" },
+  { id: "dsa-java", label: "DSA in Java", hint: "150+ patterns, graphs, dynamic programming" },
+  { id: "aws-cloud", label: "AWS Cloud Computing", hint: "Compute, networking, security, DevOps, containers" },
+  { id: "all-courses", label: "All available courses", hint: "Choose every course in one step" },
 ];
 
 export function GetStartedDialog({ trigger, defaultPlan }: Props) {
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(1);
-  const [plan, setPlan] = useState(defaultPlan ?? "ai-ml");
+  const [selectedPlans, setSelectedPlans] = useState<string[]>([defaultPlan ?? "ai-ml"]);
   const [role, setRole] = useState("Faculty");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -46,21 +53,45 @@ export function GetStartedDialog({ trigger, defaultPlan }: Props) {
     setOrg("");
     setNotes("");
     setIsSubmitting(false);
+    setSelectedPlans([defaultPlan ?? "ai-ml"]);
   };
+
+  const visibleTrackIds = TRACKS.filter((t) => t.id !== "all-courses").map((t) => t.id);
+
+  const togglePlan = (id: string) => {
+    if (id === "all-courses") {
+      setSelectedPlans(visibleTrackIds);
+      return;
+    }
+
+    setSelectedPlans((prev) => {
+      if (prev.includes(id)) {
+        return prev.filter((planId) => planId !== id);
+      }
+
+      return [...prev, id];
+    });
+  };
+
+  const selectAllPlans = () => setSelectedPlans(visibleTrackIds);
+  const clearPlans = () => setSelectedPlans([]);
+  const selectedLabels = selectedPlans.includes("all-courses")
+    ? ["All available courses"]
+    : selectedPlans.map((id) => TRACKS.find((t) => t.id === id)?.label).filter(Boolean) as string[];
 
   const submitForm = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!name || !email || !org) return;
-    
+
     setIsSubmitting(true);
-    
+
     try {
       const scriptUrl = import.meta.env.VITE_GOOGLE_SHEET_URL;
-      
+
       if (scriptUrl) {
         const formData = new FormData();
         formData.append("FormType", "GetStarted");
-        formData.append("Plan", TRACKS.find(t => t.id === plan)?.label || plan);
+        formData.append("Plan", selectedLabels.join(", ") || "No course selected");
         formData.append("Name", name);
         formData.append("Email", email);
         formData.append("Institution", org);
@@ -74,7 +105,7 @@ export function GetStartedDialog({ trigger, defaultPlan }: Props) {
           mode: "no-cors"
         });
       }
-      
+
       setSubmitted(true);
     } catch (error) {
       console.error("Failed to submit form", error);
@@ -131,7 +162,7 @@ export function GetStartedDialog({ trigger, defaultPlan }: Props) {
               <p className="text-slate-300">
                 Our team will reach out within 24 hours with a tailored proposal for{" "}
                 <span className="text-[#4ade80] font-semibold">
-                  {TRACKS.find((t) => t.id === plan)?.label}
+                  {selectedLabels.length > 0 ? selectedLabels.join(", ") : "your selected courses"}
                 </span>
                 .
               </p>
@@ -144,20 +175,31 @@ export function GetStartedDialog({ trigger, defaultPlan }: Props) {
               exit={{ opacity: 0, x: -10 }}
               className="grid grid-cols-1 sm:grid-cols-2 gap-3 py-2"
             >
-              {TRACKS.map((t) => (
-                <button
-                  key={t.id}
-                  onClick={() => setPlan(t.id)}
-                  className={`text-left p-4 rounded-xl border transition ${
-                    plan === t.id
-                      ? "border-[#4ade80] bg-[#4ade80]/10 shadow-[0_0_20px_rgba(74,222,128,0.18)]"
-                      : "border-white/10 bg-white/[0.03] hover:border-white/25"
-                  }`}
-                >
-                  <p className="font-semibold text-white">{t.label}</p>
-                  <p className="text-xs text-slate-400 mt-1">{t.hint}</p>
+              <div className="col-span-full flex items-center justify-end gap-2 mb-1">
+                <button type="button" onClick={selectAllPlans} className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#4ade80] hover:text-emerald-300 transition">
+                  Select all
                 </button>
-              ))}
+                <button type="button" onClick={clearPlans} className="text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-400 hover:text-white transition">
+                  Clear
+                </button>
+              </div>
+              {TRACKS.map((t) => {
+                const isSelected = selectedPlans.includes(t.id) || (t.id === "all-courses" && selectedPlans.length === visibleTrackIds.length);
+                return (
+                  <button
+                    key={t.id}
+                    type="button"
+                    onClick={() => togglePlan(t.id)}
+                    className={`text-left p-4 rounded-xl border transition ${isSelected
+                        ? "border-[#4ade80] bg-[#4ade80]/10 shadow-[0_0_20px_rgba(74,222,128,0.18)]"
+                        : "border-white/10 bg-white/[0.03] hover:border-white/25"
+                      }`}
+                  >
+                    <p className="font-semibold text-white">{t.label}</p>
+                    <p className="text-xs text-slate-400 mt-1">{t.hint}</p>
+                  </button>
+                );
+              })}
             </motion.div>
           ) : (
             <motion.form
@@ -191,11 +233,10 @@ export function GetStartedDialog({ trigger, defaultPlan }: Props) {
                       key={r}
                       type="button"
                       onClick={() => setRole(r)}
-                      className={`text-xs py-2 rounded-md border transition ${
-                        role === r
+                      className={`text-xs py-2 rounded-md border transition ${role === r
                           ? "border-[#a78bfa] bg-[#a78bfa]/15 text-white"
                           : "border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/25"
-                      }`}
+                        }`}
                     >
                       {r}
                     </button>
@@ -223,7 +264,8 @@ export function GetStartedDialog({ trigger, defaultPlan }: Props) {
               <button
                 type="button"
                 onClick={() => setStep(2)}
-                className="px-6 py-2.5 rounded-lg bg-[#4ade80] text-[#1a1a2e] text-xs font-bold uppercase tracking-widest hover:shadow-[0_0_24px_rgba(74,222,128,0.45)] transition"
+                disabled={selectedPlans.length === 0}
+                className="px-6 py-2.5 rounded-lg bg-[#4ade80] text-[#1a1a2e] text-xs font-bold uppercase tracking-widest hover:shadow-[0_0_24px_rgba(74,222,128,0.45)] transition disabled:opacity-50 disabled:shadow-none"
               >
                 Continue →
               </button>
